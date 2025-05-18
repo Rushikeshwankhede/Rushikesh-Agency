@@ -2,6 +2,7 @@
 import React, { useState, useEffect } from 'react';
 import { Menu, X, ChevronDown } from 'lucide-react';
 import { cn } from '@/lib/utils';
+import { NavigationMenu, NavigationMenuList, NavigationMenuItem, NavigationMenuTrigger, NavigationMenuContent, NavigationMenuLink } from "@/components/ui/navigation-menu";
 
 const NavBar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -51,54 +52,54 @@ const NavBar = () => {
         <div className="flex items-center justify-between">
           <div className="flex items-center">
             <a href="#" className="text-2xl font-bold flex items-center">
-              <span className="gradient-text">NEXUS</span>
-              <span className="ml-1 text-agency-dark">DIGITAL</span>
+              <span className="gradient-text">ADMAX</span>
+              <span className="ml-1 text-agency-dark">IFY</span>
             </a>
           </div>
 
-          {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center space-x-8">
-            {navItems.map((item) => (
-              item.dropdown ? (
-                <div className="relative group" key={item.name}>
-                  <button 
-                    onClick={() => setServicesOpen(!servicesOpen)}
-                    className="flex items-center text-agency-dark hover:text-agency-purple transition-colors"
-                  >
-                    {item.name}
-                    <ChevronDown className="ml-1 w-4 h-4" />
-                  </button>
-                  <div className="absolute left-0 mt-2 w-48 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300">
-                    <div className="py-1" role="menu" aria-orientation="vertical">
-                      {servicesList.map((service) => (
-                        <a
-                          key={service.name}
-                          href={service.href}
-                          className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
-                          role="menuitem"
-                        >
-                          {service.name}
-                        </a>
-                      ))}
-                      <a
-                        href="#services"
-                        className="block px-4 py-2 text-sm text-agency-purple font-medium"
+          {/* Desktop Navigation using NavigationMenu for better dropdown support */}
+          <div className="hidden md:block">
+            <NavigationMenu>
+              <NavigationMenuList className="flex space-x-8">
+                {navItems.map((item) => (
+                  item.dropdown ? (
+                    <NavigationMenuItem key={item.name}>
+                      <NavigationMenuTrigger className="bg-transparent text-agency-dark hover:text-agency-purple transition-colors px-0 py-0">
+                        {item.name}
+                      </NavigationMenuTrigger>
+                      <NavigationMenuContent>
+                        <div className="w-48 bg-white p-2 rounded-md shadow-lg">
+                          {servicesList.map((service) => (
+                            <NavigationMenuLink 
+                              key={service.name}
+                              href={service.href}
+                              className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 rounded-md"
+                            >
+                              {service.name}
+                            </NavigationMenuLink>
+                          ))}
+                          <NavigationMenuLink 
+                            href="#services"
+                            className="block px-4 py-2 text-sm text-agency-purple font-medium"
+                          >
+                            See all services
+                          </NavigationMenuLink>
+                        </div>
+                      </NavigationMenuContent>
+                    </NavigationMenuItem>
+                  ) : (
+                    <NavigationMenuItem key={item.name}>
+                      <NavigationMenuLink 
+                        href={item.href}
+                        className="text-agency-dark hover:text-agency-purple transition-colors"
                       >
-                        See all services
-                      </a>
-                    </div>
-                  </div>
-                </div>
-              ) : (
-                <a
-                  key={item.name}
-                  href={item.href}
-                  className="text-agency-dark hover:text-agency-purple transition-colors"
-                >
-                  {item.name}
-                </a>
-              )
-            ))}
+                        {item.name}
+                      </NavigationMenuLink>
+                    </NavigationMenuItem>
+                  )
+                ))}
+              </NavigationMenuList>
+            </NavigationMenu>
           </div>
           
           <div className="hidden md:block">
