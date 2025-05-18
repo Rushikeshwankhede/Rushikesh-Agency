@@ -19,12 +19,632 @@
     
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap">
+    <link rel="stylesheet" href="style.css">
+    <!-- IMPORTANT: DO NOT REMOVE THIS SCRIPT TAG OR THIS VERY COMMENT! -->
+    <script src="https://cdn.gpteng.co/gptengineer.js" type="module"></script>
   </head>
 
   <body>
-    <div id="root"></div>
-    <!-- IMPORTANT: DO NOT REMOVE THIS SCRIPT TAG OR THIS VERY COMMENT! -->
-    <script src="https://cdn.gpteng.co/gptengineer.js" type="module"></script>
-    <script type="module" src="/src/main.tsx"></script>
+    <nav id="navbar" class="navbar">
+      <div class="container-custom">
+        <div class="navbar-content">
+          <div class="navbar-logo">
+            <a href="#" class="logo-text">
+              <span class="gradient-text">NEXUS</span>
+              <span class="logo-dark">DIGITAL</span>
+            </a>
+          </div>
+
+          <!-- Desktop Navigation -->
+          <div class="navbar-menu desktop-only">
+            <a href="#" class="navbar-link">Home</a>
+            <a href="#about" class="navbar-link">About</a>
+            <div class="navbar-dropdown">
+              <button class="navbar-link dropdown-toggle">
+                Services
+                <svg class="dropdown-icon" viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" stroke-width="2" fill="none">
+                  <polyline points="6 9 12 15 18 9"></polyline>
+                </svg>
+              </button>
+              <div class="dropdown-menu">
+                <a href="#" class="dropdown-item">Digital Marketing</a>
+                <a href="#" class="dropdown-item">SEO Optimization</a>
+                <a href="#" class="dropdown-item">Content Creation</a>
+                <a href="#" class="dropdown-item">Social Media Management</a>
+                <a href="#" class="dropdown-item">AI-Driven Analytics</a>
+                <a href="#services" class="dropdown-item highlight">See all services</a>
+              </div>
+            </div>
+            <a href="#case-studies" class="navbar-link">Case Studies</a>
+            <a href="#testimonials" class="navbar-link">Testimonials</a>
+            <a href="#contact" class="navbar-link">Contact</a>
+          </div>
+          
+          <a href="#contact" class="btn-primary desktop-only">Get Started</a>
+
+          <!-- Mobile menu button -->
+          <button class="mobile-menu-button mobile-only" aria-label="Toggle menu">
+            <svg class="menu-icon" viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" stroke-width="2" fill="none">
+              <line x1="3" y1="12" x2="21" y2="12"></line>
+              <line x1="3" y1="6" x2="21" y2="6"></line>
+              <line x1="3" y1="18" x2="21" y2="18"></line>
+            </svg>
+            <svg class="close-icon hidden" viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" stroke-width="2" fill="none">
+              <line x1="18" y1="6" x2="6" y2="18"></line>
+              <line x1="6" y1="6" x2="18" y2="18"></line>
+            </svg>
+          </button>
+        </div>
+
+        <!-- Mobile Navigation -->
+        <div class="mobile-menu hidden">
+          <a href="#" class="mobile-link">Home</a>
+          <a href="#about" class="mobile-link">About</a>
+          <div class="mobile-dropdown">
+            <button class="mobile-link dropdown-toggle">
+              Services
+              <svg class="dropdown-icon" viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" stroke-width="2" fill="none">
+                <polyline points="6 9 12 15 18 9"></polyline>
+              </svg>
+            </button>
+            <div class="mobile-dropdown-menu hidden">
+              <a href="#" class="mobile-dropdown-item">Digital Marketing</a>
+              <a href="#" class="mobile-dropdown-item">SEO Optimization</a>
+              <a href="#" class="mobile-dropdown-item">Content Creation</a>
+              <a href="#" class="mobile-dropdown-item">Social Media Management</a>
+              <a href="#" class="mobile-dropdown-item">AI-Driven Analytics</a>
+              <a href="#services" class="mobile-dropdown-item highlight">See all services</a>
+            </div>
+          </div>
+          <a href="#case-studies" class="mobile-link">Case Studies</a>
+          <a href="#testimonials" class="mobile-link">Testimonials</a>
+          <a href="#contact" class="mobile-link">Contact</a>
+          
+          <div class="mobile-cta">
+            <a href="#contact" class="btn-primary">Get Started</a>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <section id="hero" class="hero-section">
+      <div class="container-custom">
+        <div class="hero-content">
+          <div class="hero-text">
+            <h1 class="hero-title">
+              Elevate Your <span class="gradient-text">Digital Presence</span> With AI
+            </h1>
+            <p class="hero-subtitle">
+              Harness the power of data-driven strategies and cutting-edge AI technology to transform your business and outperform competitors.
+            </p>
+            <div class="hero-buttons">
+              <a href="#services" class="btn-primary">
+                Explore Our Services
+                <svg class="btn-icon" viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" stroke-width="2" fill="none">
+                  <line x1="5" y1="12" x2="19" y2="12"></line>
+                  <polyline points="12 5 19 12 12 19"></polyline>
+                </svg>
+              </a>
+              <a href="#contact" class="btn-outline">
+                Get Free Consultation
+              </a>
+            </div>
+            
+            <div class="stats-grid">
+              <div class="stat-item">
+                <h3 class="stat-number" data-target="235">0%</h3>
+                <p class="stat-label">Average Growth</p>
+              </div>
+              <div class="stat-item">
+                <h3 class="stat-number" data-target="95">0+</h3>
+                <p class="stat-label">Happy Clients</p>
+              </div>
+              <div class="stat-item">
+                <h3 class="stat-number-dollar" data-target="12.5">$0M</h3>
+                <p class="stat-label">Revenue Generated</p>
+              </div>
+            </div>
+          </div>
+          
+          <div class="hero-image">
+            <div class="image-container">
+              <img 
+                src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=800&q=80" 
+                alt="Marketing team working together" 
+                class="main-image"
+              />
+              <div class="floating-card card-right">
+                <div class="floating-card-content">
+                  <div class="icon-circle">
+                    <span>AI</span>
+                  </div>
+                  <div>
+                    <p class="card-title">AI-Powered</p>
+                    <p class="card-subtitle">Strategies</p>
+                  </div>
+                </div>
+              </div>
+              <div class="floating-card card-bottom">
+                <div class="floating-card-content center">
+                  <p class="card-number">+385%</p>
+                  <p class="card-subtitle">ROI Average</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="about" class="section">
+      <div class="container-custom">
+        <div class="section-header">
+          <h2 class="section-title">
+            We Drive <span class="gradient-text">Measurable Results</span>
+          </h2>
+          <p class="section-subtitle">
+            Our data-driven approach combined with cutting-edge AI technology delivers exceptional growth for our clients.
+          </p>
+        </div>
+        
+        <div class="chart-container">
+          <div class="chart-card">
+            <h3 class="chart-title">Client Growth Performance vs. Industry Average</h3>
+            <div class="chart" id="growth-chart"></div>
+            <p class="chart-note">*Based on average performance across all clients in 2024</p>
+          </div>
+        </div>
+        
+        <div class="features-grid">
+          <div class="feature-card">
+            <div class="feature-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 2L2 7l10 5 10-5-10-5z"></path>
+                <path d="M2 17l10 5 10-5"></path>
+                <path d="M2 12l10 5 10-5"></path>
+              </svg>
+            </div>
+            <h3 class="feature-title">Data-Driven Strategies</h3>
+            <p class="feature-description">Our approach is built on thorough market analysis and customer insights to create strategies that deliver real results.</p>
+          </div>
+          
+          <div class="feature-card">
+            <div class="feature-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+              </svg>
+            </div>
+            <h3 class="feature-title">AI-Powered Innovation</h3>
+            <p class="feature-description">Leverage cutting-edge artificial intelligence to optimize campaigns, personalize content, and predict market trends.</p>
+          </div>
+          
+          <div class="feature-card">
+            <div class="feature-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="10"></circle>
+                <line x1="12" y1="8" x2="12" y2="12"></line>
+                <line x1="12" y1="16" x2="12.01" y2="16"></line>
+              </svg>
+            </div>
+            <h3 class="feature-title">Transparent Reporting</h3>
+            <p class="feature-description">Real-time dashboards and comprehensive reporting ensure you always know exactly how your campaigns are performing.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="services" class="section bg-soft">
+      <div class="container-custom">
+        <div class="section-header">
+          <h2 class="section-title">
+            Our <span class="gradient-text">Premium Services</span>
+          </h2>
+          <p class="section-subtitle">
+            Comprehensive digital marketing solutions powered by AI to help your business thrive in the digital landscape.
+          </p>
+        </div>
+        
+        <div class="carousel-container services-carousel">
+          <div class="carousel-inner" id="services-carousel">
+            <!-- Service cards will be inserted here via JavaScript -->
+          </div>
+          <div class="carousel-controls">
+            <button class="carousel-control prev-button" data-carousel="services-carousel">
+              <svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" stroke-width="2" fill="none">
+                <polyline points="15 18 9 12 15 6"></polyline>
+              </svg>
+            </button>
+            <button class="carousel-control next-button" data-carousel="services-carousel">
+              <svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" stroke-width="2" fill="none">
+                <polyline points="9 18 15 12 9 6"></polyline>
+              </svg>
+            </button>
+          </div>
+          
+          <div class="carousel-action">
+            <a href="#" class="btn-outline">See All Services</a>
+          </div>
+        </div>
+        
+        <div class="info-card">
+          <div class="info-text">
+            <h3 class="info-title">AI-Powered Solutions for Modern Businesses</h3>
+            <p class="info-description">
+              Our agency leverages cutting-edge artificial intelligence to deliver unprecedented results. 
+              From predictive analytics to personalized content generation, our AI tools work around the clock 
+              to optimize your marketing performance.
+            </p>
+            <ul class="info-list">
+              <li>AI-driven content creation and optimization</li>
+              <li>Predictive analytics for market trends</li>
+              <li>Automated campaign optimization</li>
+            </ul>
+            <a href="#contact" class="btn-primary">Get AI Solutions</a>
+          </div>
+          <div class="info-image">
+            <img 
+              src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?ixlib=rb-1.2.1&auto=format&fit=crop&q=80" 
+              alt="AI-Powered Marketing Solutions"
+            />
+            <div class="image-overlay">
+              <div class="overlay-text">
+                <div class="overlay-title">AI</div>
+                <div class="overlay-subtitle">Powered Solutions</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="testimonials" class="section">
+      <div class="container-custom">
+        <div class="section-header">
+          <h2 class="section-title">
+            Client <span class="gradient-text">Success Stories</span>
+          </h2>
+          <p class="section-subtitle">
+            Don't just take our word for it — hear from our clients who have experienced remarkable growth with our strategies.
+          </p>
+        </div>
+        
+        <div class="carousel-container testimonials-carousel">
+          <div class="carousel-inner" id="testimonials-carousel">
+            <!-- Testimonial cards will be inserted here via JavaScript -->
+          </div>
+          <div class="carousel-controls">
+            <button class="carousel-control prev-button" data-carousel="testimonials-carousel">
+              <svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" stroke-width="2" fill="none">
+                <polyline points="15 18 9 12 15 6"></polyline>
+              </svg>
+            </button>
+            <button class="carousel-control next-button" data-carousel="testimonials-carousel">
+              <svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" stroke-width="2" fill="none">
+                <polyline points="9 18 15 12 9 6"></polyline>
+              </svg>
+            </button>
+          </div>
+          
+          <div class="carousel-action">
+            <a href="#" class="btn-primary">See More Results</a>
+          </div>
+        </div>
+        
+        <div class="cta-card">
+          <h3 class="cta-title">Ready to Transform Your Digital Strategy?</h3>
+          <p class="cta-description">
+            Join the ranks of our successful clients and experience the difference that data-driven, 
+            AI-powered marketing can make for your business.
+          </p>
+          <div class="cta-buttons">
+            <a href="#contact" class="btn-white">Get Started Today</a>
+            <a href="#services" class="btn-outline-white">Explore Services</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="section bg-soft">
+      <div class="container-custom">
+        <div class="section-header">
+          <h2 class="section-title">
+            Get in <span class="gradient-text">Touch</span>
+          </h2>
+          <p class="section-subtitle">
+            Ready to take your digital marketing to the next level? Let's discuss how our AI-powered strategies can help your business grow.
+          </p>
+        </div>
+        
+        <div class="contact-card">
+          <div class="contact-form-container">
+            <h3 class="form-title">Send Us a Message</h3>
+            <form id="contact-form" class="contact-form">
+              <div class="form-field">
+                <input type="text" id="name" name="name" placeholder="Your Name" required>
+                <span class="error-message" id="name-error"></span>
+              </div>
+              <div class="form-field">
+                <input type="email" id="email" name="email" placeholder="Your Email" required>
+                <span class="error-message" id="email-error"></span>
+              </div>
+              <div class="form-group">
+                <div class="form-field">
+                  <input type="text" id="company" name="company" placeholder="Company Name">
+                </div>
+                <div class="form-field">
+                  <input type="tel" id="phone" name="phone" placeholder="Phone Number">
+                </div>
+              </div>
+              <div class="form-field">
+                <textarea id="message" name="message" placeholder="Your Message" rows="4" required></textarea>
+                <span class="error-message" id="message-error"></span>
+              </div>
+              <div class="form-field">
+                <button type="submit" class="btn-primary form-submit">
+                  <span>Send Message</span>
+                  <span class="spinner hidden"></span>
+                </button>
+              </div>
+            </form>
+          </div>
+          <div class="contact-info">
+            <h3 class="info-title">Contact Information</h3>
+            <div class="info-item">
+              <svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" stroke-width="2" fill="none">
+                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                <circle cx="12" cy="10" r="3"></circle>
+              </svg>
+              <div>
+                <h4>Visit Us</h4>
+                <p>123 Marketing Street, Suite 101<br>San Francisco, CA 94107</p>
+              </div>
+            </div>
+            <div class="info-item">
+              <svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" stroke-width="2" fill="none">
+                <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+              </svg>
+              <div>
+                <h4>Call Us</h4>
+                <p>(415) 123-4567</p>
+              </div>
+            </div>
+            <div class="info-item">
+              <svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" stroke-width="2" fill="none">
+                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                <polyline points="22,6 12,13 2,6"></polyline>
+              </svg>
+              <div>
+                <h4>Email Us</h4>
+                <p>info@nexusdigital.com</p>
+              </div>
+            </div>
+            <div class="social-icons">
+              <a href="#" class="social-icon">
+                <svg viewBox="0 0 24 24" width="18" height="18" stroke="currentColor" stroke-width="2" fill="none">
+                  <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path>
+                </svg>
+              </a>
+              <a href="#" class="social-icon">
+                <svg viewBox="0 0 24 24" width="18" height="18" stroke="currentColor" stroke-width="2" fill="none">
+                  <path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5 0-.28-.03-.56-.08-.83A7.72 7.72 0 0 0 23 3z"></path>
+                </svg>
+              </a>
+              <a href="#" class="social-icon">
+                <svg viewBox="0 0 24 24" width="18" height="18" stroke="currentColor" stroke-width="2" fill="none">
+                  <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
+                  <rect x="2" y="9" width="4" height="12"></rect>
+                  <circle cx="4" cy="4" r="2"></circle>
+                </svg>
+              </a>
+              <a href="#" class="social-icon">
+                <svg viewBox="0 0 24 24" width="18" height="18" stroke="currentColor" stroke-width="2" fill="none">
+                  <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                  <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                  <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+                </svg>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <div class="container-custom">
+        <div class="footer-grid">
+          <div class="footer-company">
+            <a href="#" class="footer-logo">
+              <span class="gradient-text">NEXUS</span>
+              <span class="text-white">DIGITAL</span>
+            </a>
+            <p class="footer-description">
+              We leverage AI and data-driven strategies to help businesses thrive in the digital landscape.
+            </p>
+            <div class="social-icons">
+              <a href="#" class="social-icon">
+                <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor">
+                  <path d="M16 8.049c0-4.446-3.582-8.05-8-8.05C3.58 0-.002 3.603-.002 8.05c0 4.017 2.926 7.347 6.75 7.951v-5.625h-2.03V8.05H6.75V6.275c0-2.017 1.195-3.131 3.022-3.131.876 0 1.791.157 1.791.157v1.98h-1.009c-.993 0-1.303.621-1.303 1.258v1.51h2.218l-.354 2.326H9.25V16c3.824-.604 6.75-3.934 6.75-7.951z"/>
+                </svg>
+              </a>
+              <a href="#" class="social-icon">
+                <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor">
+                  <path d="M5.026 15c6.038 0 9.341-5.003 9.341-9.334 0-.14 0-.282-.006-.422A6.685 6.685 0 0 0 16 3.542a6.658 6.658 0 0 1-1.889.518 3.301 3.301 0 0 0 1.447-1.817 6.533 6.533 0 0 1-2.087.793A3.286 3.286 0 0 0 7.875 6.03a9.325 9.325 0 0 1-6.767-3.429 3.289 3.289 0 0 0 1.018 4.382A3.323 3.323 0 0 1 .64 6.575v.045a3.288 3.288 0 0 0 2.632 3.218 3.203 3.203 0 0 1-.865.115 3.23 3.23 0 0 1-.614-.057 3.283 3.283 0 0 0 3.067 2.277A6.588 6.588 0 0 1 .78 13.58a6.32 6.32 0 0 1-.78-.045A9.344 9.344 0 0 0 5.026 15z"/>
+                </svg>
+              </a>
+              <a href="#" class="social-icon">
+                <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor">
+                  <path d="M0 1.146C0 .513.526 0 1.175 0h13.65C15.474 0 16 .513 16 1.146v13.708c0 .633-.526 1.146-1.175 1.146H1.175C.526 16 0 15.487 0 14.854V1.146zm4.943 12.248V6.169H2.542v7.225h2.401zm-1.2-8.212c.837 0 1.358-.554 1.358-1.248-.015-.709-.52-1.248-1.342-1.248-.822 0-1.359.54-1.359 1.248 0 .694.521 1.248 1.327 1.248h.016zm4.908 8.212V9.359c0-.216.016-.432.08-.586.173-.431.568-.878 1.232-.878.869 0 1.216.662 1.216 1.634v3.865h2.401V9.25c0-2.22-1.184-3.252-2.764-3.252-1.274 0-1.845.7-2.165 1.193v.025h-.016a5.54 5.54 0 0 1 .016-.025V6.169h-2.4c.03.678 0 7.225 0 7.225h2.4z"/>
+                </svg>
+              </a>
+              <a href="#" class="social-icon">
+                <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor">
+                  <path d="M8 0C5.829 0 5.556.01 4.703.048 3.85.088 3.269.222 2.76.42a3.917 3.917 0 0 0-1.417.923A3.927 3.927 0 0 0 .42 2.76C.222 3.268.087 3.85.048 4.7.01 5.555 0 5.827 0 8.001c0 2.172.01 2.444.048 3.297.04.852.174 1.433.372 1.942.205.526.478.972.923 1.417.444.445.89.719 1.416.923.51.198 1.09.333 1.942.372C5.555 15.99 5.827 16 8 16s2.444-.01 3.298-.048c.851-.04 1.434-.174 1.943-.372a3.916 3.916 0 0 0 1.416-.923c.445-.445.718-.891.923-1.417.197-.509.332-1.09.372-1.942C15.99 10.445 16 10.173 16 8s-.01-2.445-.048-3.299c-.04-.851-.175-1.433-.372-1.941a3.926 3.926 0 0 0-.923-1.417A3.911 3.911 0 0 0 13.24.42c-.51-.198-1.092-.333-1.943-.372C10.443.01 10.172 0 7.998 0h.003zm-.717 1.442h.718c2.136 0 2.389.007 3.232.046.78.035 1.204.166 1.486.275.373.145.64.319.92.599.28.28.453.546.598.92.11.281.24.705.275 1.485.039.843.047 1.096.047 3.231s-.008 2.389-.047 3.232c-.035.78-.166 1.203-.275 1.485a2.47 2.47 0 0 1-.599.919c-.28.28-.546.453-.92.598-.28.11-.704.24-1.485.276-.843.038-1.096.047-3.232.047s-2.39-.009-3.233-.047c-.78-.036-1.203-.166-1.485-.276a2.478 2.478 0 0 1-.92-.598 2.48 2.48 0 0 1-.6-.92c-.109-.281-.24-.705-.275-1.485-.038-.843-.046-1.096-.046-3.233 0-2.136.008-2.388.046-3.231.036-.78.166-1.204.276-1.486.145-.373.319-.64.599-.92.28-.28.546-.453.92-.598.282-.11.705-.24 1.485-.276.738-.034 1.024-.044 2.515-.045v.002zm4.988 1.328a.96.96 0 1 0 0 1.92.96.96 0 0 0 0-1.92zm-4.27 1.122a4.109 4.109 0 1 0 0 8.217 4.109 4.109 0 0 0 0-8.217zm0 1.441a2.667 2.667 0 1 1 0 5.334 2.667 2.667 0 0 1 0-5.334z"/>
+                </svg>
+              </a>
+            </div>
+          </div>
+          
+          <div class="footer-links">
+            <h4 class="footer-title">Our Services</h4>
+            <ul class="footer-menu">
+              <li class="footer-item">
+                <a href="#" class="footer-link">
+                  <svg viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" stroke-width="2" fill="none">
+                    <line x1="5" y1="12" x2="19" y2="12"></line>
+                    <polyline points="12 5 19 12 12 19"></polyline>
+                  </svg>
+                  Digital Marketing Strategy
+                </a>
+              </li>
+              <li class="footer-item">
+                <a href="#" class="footer-link">
+                  <svg viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" stroke-width="2" fill="none">
+                    <line x1="5" y1="12" x2="19" y2="12"></line>
+                    <polyline points="12 5 19 12 12 19"></polyline>
+                  </svg>
+                  SEO & Content Marketing
+                </a>
+              </li>
+              <li class="footer-item">
+                <a href="#" class="footer-link">
+                  <svg viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" stroke-width="2" fill="none">
+                    <line x1="5" y1="12" x2="19" y2="12"></line>
+                    <polyline points="12 5 19 12 12 19"></polyline>
+                  </svg>
+                  Social Media Management
+                </a>
+              </li>
+              <li class="footer-item">
+                <a href="#" class="footer-link">
+                  <svg viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" stroke-width="2" fill="none">
+                    <line x1="5" y1="12" x2="19" y2="12"></line>
+                    <polyline points="12 5 19 12 12 19"></polyline>
+                  </svg>
+                  PPC & Paid Advertising
+                </a>
+              </li>
+              <li class="footer-item">
+                <a href="#" class="footer-link">
+                  <svg viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" stroke-width="2" fill="none">
+                    <line x1="5" y1="12" x2="19" y2="12"></line>
+                    <polyline points="12 5 19 12 12 19"></polyline>
+                  </svg>
+                  AI-Powered Analytics
+                </a>
+              </li>
+              <li class="footer-item">
+                <a href="#" class="footer-link">
+                  <svg viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" stroke-width="2" fill="none">
+                    <line x1="5" y1="12" x2="19" y2="12"></line>
+                    <polyline points="12 5 19 12 12 19"></polyline>
+                  </svg>
+                  Email Marketing
+                </a>
+              </li>
+            </ul>
+          </div>
+          
+          <div class="footer-links">
+            <h4 class="footer-title">Quick Links</h4>
+            <ul class="footer-menu">
+              <li class="footer-item">
+                <a href="#" class="footer-link">
+                  <svg viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" stroke-width="2" fill="none">
+                    <line x1="5" y1="12" x2="19" y2="12"></line>
+                    <polyline points="12 5 19 12 12 19"></polyline>
+                  </svg>
+                  Home
+                </a>
+              </li>
+              <li class="footer-item">
+                <a href="#about" class="footer-link">
+                  <svg viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" stroke-width="2" fill="none">
+                    <line x1="5" y1="12" x2="19" y2="12"></line>
+                    <polyline points="12 5 19 12 12 19"></polyline>
+                  </svg>
+                  About Us
+                </a>
+              </li>
+              <li class="footer-item">
+                <a href="#services" class="footer-link">
+                  <svg viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" stroke-width="2" fill="none">
+                    <line x1="5" y1="12" x2="19" y2="12"></line>
+                    <polyline points="12 5 19 12 12 19"></polyline>
+                  </svg>
+                  Services
+                </a>
+              </li>
+              <li class="footer-item">
+                <a href="#case-studies" class="footer-link">
+                  <svg viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" stroke-width="2" fill="none">
+                    <line x1="5" y1="12" x2="19" y2="12"></line>
+                    <polyline points="12 5 19 12 12 19"></polyline>
+                  </svg>
+                  Case Studies
+                </a>
+              </li>
+              <li class="footer-item">
+                <a href="#testimonials" class="footer-link">
+                  <svg viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" stroke-width="2" fill="none">
+                    <line x1="5" y1="12" x2="19" y2="12"></line>
+                    <polyline points="12 5 19 12 12 19"></polyline>
+                  </svg>
+                  Testimonials
+                </a>
+              </li>
+              <li class="footer-item">
+                <a href="#contact" class="footer-link">
+                  <svg viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" stroke-width="2" fill="none">
+                    <line x1="5" y1="12" x2="19" y2="12"></line>
+                    <polyline points="12 5 19 12 12 19"></polyline>
+                  </svg>
+                  Contact Us
+                </a>
+              </li>
+            </ul>
+          </div>
+          
+          <div class="footer-newsletter">
+            <h4 class="footer-title">Newsletter</h4>
+            <p class="footer-description">
+              Subscribe to our newsletter to receive updates and marketing insights.
+            </p>
+            <form class="newsletter-form">
+              <div class="form-group">
+                <input type="email" placeholder="Your email address" required class="newsletter-input">
+                <button type="submit" class="newsletter-button">
+                  <svg viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" stroke-width="2" fill="none">
+                    <line x1="5" y1="12" x2="19" y2="12"></line>
+                    <polyline points="12 5 19 12 12 19"></polyline>
+                  </svg>
+                </button>
+              </div>
+            </form>
+            <p class="footer-note">We respect your privacy. No spam emails.</p>
+          </div>
+        </div>
+        
+        <div class="footer-bottom">
+          <p class="copyright">
+            &copy; <span id="current-year"></span> Nexus Digital. All rights reserved.
+          </p>
+          <div class="legal-links">
+            <a href="#" class="legal-link">Privacy Policy</a>
+            <a href="#" class="legal-link">Terms of Service</a>
+            <a href="#" class="legal-link">Cookies Policy</a>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Toast notification -->
+    <div id="toast" class="toast hidden">
+      <div class="toast-content">
+        <span id="toast-message"></span>
+      </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="script.js"></script>
   </body>
 </html>
