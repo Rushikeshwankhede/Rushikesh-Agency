@@ -3,6 +3,7 @@ import React, { useState, useEffect } from 'react';
 import { Menu, X, ChevronDown } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import { NavigationMenu, NavigationMenuList, NavigationMenuItem, NavigationMenuTrigger, NavigationMenuContent, NavigationMenuLink } from "@/components/ui/navigation-menu";
+import { motion, AnimatePresence } from 'framer-motion';
 
 const NavBar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -42,7 +43,10 @@ const NavBar = () => {
   ];
 
   return (
-    <nav 
+    <motion.nav 
+      initial={{ opacity: 0, y: -20 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.5 }}
       className={cn(
         "fixed top-0 left-0 right-0 z-50 transition-all duration-300",
         isScrolled ? "bg-white shadow-md py-2" : "bg-transparent py-6"
@@ -51,10 +55,15 @@ const NavBar = () => {
       <div className="container-custom">
         <div className="flex items-center justify-between">
           <div className="flex items-center">
-            <a href="#" className="text-2xl font-bold flex items-center">
+            <motion.a 
+              href="#" 
+              className="text-2xl font-bold flex items-center"
+              whileHover={{ scale: 1.05 }}
+              transition={{ type: "spring", stiffness: 500 }}
+            >
               <span className="gradient-text">ADMAX</span>
               <span className="ml-1 text-agency-dark">IFY</span>
-            </a>
+            </motion.a>
           </div>
 
           {/* Desktop Navigation using NavigationMenu for better dropdown support */}
@@ -89,12 +98,14 @@ const NavBar = () => {
                     </NavigationMenuItem>
                   ) : (
                     <NavigationMenuItem key={item.name}>
-                      <NavigationMenuLink 
-                        href={item.href}
-                        className="text-agency-dark hover:text-agency-purple transition-colors"
-                      >
-                        {item.name}
-                      </NavigationMenuLink>
+                      <motion.div whileHover={{ y: -2 }} transition={{ type: "spring", stiffness: 500 }}>
+                        <NavigationMenuLink 
+                          href={item.href}
+                          className="text-agency-dark hover:text-agency-purple transition-colors"
+                        >
+                          {item.name}
+                        </NavigationMenuLink>
+                      </motion.div>
                     </NavigationMenuItem>
                   )
                 ))}
@@ -103,81 +114,113 @@ const NavBar = () => {
           </div>
           
           <div className="hidden md:block">
-            <a href="#contact" className="btn-primary">Get Started</a>
+            <motion.a 
+              href="#contact" 
+              className="btn-primary"
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+            >
+              Get Started
+            </motion.a>
           </div>
 
           {/* Mobile menu button */}
           <div className="md:hidden">
-            <button
+            <motion.button
               onClick={() => setIsOpen(!isOpen)}
               className="text-agency-dark hover:text-agency-purple transition-colors"
+              whileTap={{ scale: 0.9 }}
             >
               {isOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
-            </button>
+            </motion.button>
           </div>
         </div>
 
         {/* Mobile Navigation */}
-        {isOpen && (
-          <div className="md:hidden mt-4 pb-4 animate-fade-in">
-            {navItems.map((item) => (
-              item.dropdown ? (
-                <div key={item.name} className="py-2">
-                  <button 
-                    onClick={() => setServicesOpen(!servicesOpen)}
-                    className="flex items-center w-full text-left text-agency-dark hover:text-agency-purple transition-colors"
+        <AnimatePresence>
+          {isOpen && (
+            <motion.div 
+              className="md:hidden mt-4 pb-4"
+              initial={{ opacity: 0, height: 0 }}
+              animate={{ opacity: 1, height: 'auto' }}
+              exit={{ opacity: 0, height: 0 }}
+              transition={{ duration: 0.3 }}
+            >
+              {navItems.map((item) => (
+                item.dropdown ? (
+                  <div key={item.name} className="py-2">
+                    <button 
+                      onClick={() => setServicesOpen(!servicesOpen)}
+                      className="flex items-center w-full text-left text-agency-dark hover:text-agency-purple transition-colors"
+                    >
+                      {item.name}
+                      <ChevronDown className={cn("ml-1 w-4 h-4 transition-transform", servicesOpen && "rotate-180")} />
+                    </button>
+                    
+                    <AnimatePresence>
+                      {servicesOpen && (
+                        <motion.div 
+                          className="ml-4 mt-2 space-y-2"
+                          initial={{ opacity: 0, height: 0 }}
+                          animate={{ opacity: 1, height: 'auto' }}
+                          exit={{ opacity: 0, height: 0 }}
+                          transition={{ duration: 0.2 }}
+                        >
+                          {servicesList.map((service) => (
+                            <motion.a
+                              key={service.name}
+                              href={service.href}
+                              className="block py-1 text-sm text-gray-700 hover:text-agency-purple"
+                              onClick={() => setIsOpen(false)}
+                              whileHover={{ x: 5 }}
+                              transition={{ type: "spring", stiffness: 500 }}
+                            >
+                              {service.name}
+                            </motion.a>
+                          ))}
+                          <motion.a
+                            href="#services"
+                            className="block py-1 text-sm text-agency-purple font-medium"
+                            onClick={() => setIsOpen(false)}
+                            whileHover={{ x: 5 }}
+                            transition={{ type: "spring", stiffness: 500 }}
+                          >
+                            See all services
+                          </motion.a>
+                        </motion.div>
+                      )}
+                    </AnimatePresence>
+                  </div>
+                ) : (
+                  <motion.a
+                    key={item.name}
+                    href={item.href}
+                    className="block py-2 text-agency-dark hover:text-agency-purple transition-colors"
+                    onClick={() => setIsOpen(false)}
+                    whileHover={{ x: 5 }}
+                    transition={{ type: "spring", stiffness: 300 }}
                   >
                     {item.name}
-                    <ChevronDown className={cn("ml-1 w-4 h-4 transition-transform", servicesOpen && "rotate-180")} />
-                  </button>
-                  
-                  {servicesOpen && (
-                    <div className="ml-4 mt-2 space-y-2 animate-fade-in">
-                      {servicesList.map((service) => (
-                        <a
-                          key={service.name}
-                          href={service.href}
-                          className="block py-1 text-sm text-gray-700 hover:text-agency-purple"
-                          onClick={() => setIsOpen(false)}
-                        >
-                          {service.name}
-                        </a>
-                      ))}
-                      <a
-                        href="#services"
-                        className="block py-1 text-sm text-agency-purple font-medium"
-                        onClick={() => setIsOpen(false)}
-                      >
-                        See all services
-                      </a>
-                    </div>
-                  )}
-                </div>
-              ) : (
-                <a
-                  key={item.name}
-                  href={item.href}
-                  className="block py-2 text-agency-dark hover:text-agency-purple transition-colors"
+                  </motion.a>
+                )
+              ))}
+              
+              <div className="pt-4 mt-4 border-t">
+                <motion.a 
+                  href="#contact" 
+                  className="btn-primary w-full text-center block"
                   onClick={() => setIsOpen(false)}
+                  whileHover={{ scale: 1.03 }}
+                  whileTap={{ scale: 0.97 }}
                 >
-                  {item.name}
-                </a>
-              )
-            ))}
-            
-            <div className="pt-4 mt-4 border-t">
-              <a 
-                href="#contact" 
-                className="btn-primary w-full text-center block"
-                onClick={() => setIsOpen(false)}
-              >
-                Get Started
-              </a>
-            </div>
-          </div>
-        )}
+                  Get Started
+                </motion.a>
+              </div>
+            </motion.div>
+          )}
+        </AnimatePresence>
       </div>
-    </nav>
+    </motion.nav>
   );
 };
 
